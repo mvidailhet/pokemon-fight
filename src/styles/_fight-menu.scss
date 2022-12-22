@@ -26,6 +26,7 @@
   flex-grow: 2;
   display: flex;
   justify-content: space-around;
+  text-align: center;
 }
 
 .attack-menu-item {
@@ -44,7 +45,7 @@
 }
 
 .attack-details {
-  flex-grow: 0.5;
+  flex: 0.5 1 250px;
   display: flex;
   flex-direction: column;
 }
