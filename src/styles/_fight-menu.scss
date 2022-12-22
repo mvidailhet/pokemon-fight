@@ -4,13 +4,13 @@
   align-items: center;
   justify-content: space-between;
   background-color: var(--menu-background-color);
-  border: 2px solid var(--menu-border-color);
-  height: 25vh;
+  border: var(--menu-border-thickness) solid var(--menu-border-color);
+  border-radius: var(--menu-border-radius);
+  height: 400px;
   width: 100%;
 }
 
 .inner-fight-menu {
-  border: 2px solid var(--menu-border-color);
   height: 100%;
   padding: 20px;
 }
@@ -22,6 +22,7 @@
 }
 
 .attacks-menu {
+  border-right: var(--menu-border-thickness) solid var(--menu-border-color);
   flex-grow: 2;
   display: flex;
   justify-content: space-around;

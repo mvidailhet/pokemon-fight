@@ -1,55 +1,86 @@
-.pokemon-info-container {
+.pokemon-and-info-container {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-}
 
-.pokemon-img {
-  width: 400px;
+  &.ennemy-pokemon-and-info-container {
+    align-items: flex-start;
+
+    .ennemy-pokemon-info {
+      margin-top: 10px;
+    }
+  }
+
+  .pokemon-img {
+    width: 400px;
+  }
 }
 
 .pokemon-info {
   font-size: 45px;
   margin-bottom: 20px;
-  background-color: var(--menu-background-color);
-  border: 3px solid var(--menu-border-color);
+  border: var(--menu-border-thickness) solid var(--menu-border-color);
+  border-radius: var(--pokemon-info-border-radius);
+  background-color: var(--pokemon-info-background-color);
   width: 500px;
   height: 250px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  .pokemon-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .pokemon-title {
+      display: flex;
+      align-items: center;
+
+      .pokemon-name {
+        font-weight: bold;
+        margin-right: 20px;
+      }
+
+      .pokemon-gender {
+        width: 40px;
+        height: 40px;
+
+        &.pokemon-gender-male {
+          fill: var(--pokemon-gender-male-color)
+        }
+
+        &.pokemon-gender-female {
+          fill: var(--pokemon-gender-female-color)
+        }
+
+      }
+    }
+  }
+
+  .pokemon-level-container {
+    font-size: 35px;
+  }
+
+  .pokemon-life-points-container {
+    font-size: 35px;
+  }
+
+  .pokemon-life-bar-container {
+    margin-top: 5px;
+    border: var(--pokemon-life-bar-border-thickness) solid var(--pokemon-life-bar-border-color);
+    height: 40px;
+    border-radius: calc(var(--pokemon-life-bar-border-radius) + var(--pokemon-life-bar-border-thickness));
+  
+    .pokemon-life-bar {
+      height: 100%;
+      width: 80%;
+      background-color: var(--pokemon-life-bar-color);
+      border-radius: var(--pokemon-life-bar-border-radius);
+    }
+  }
 }
 
-.ennemy-pokemon-info-container {
-  align-items: flex-start;
-}
 
-.ennemy-pokemon-info {
-  margin-top: 20px;
-}
 
-.pokemon-title {
-  display: flex;
-}
-
-.pokemon-name {
-  margin-right: 20px;
-}
-
-.pokemon-info-header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.pokemon-life-bar-container {
-  margin-top: 10px;
-  border: 3px solid var(--menu-border-color);
-  height: 40px;
-}
-
-.pokemon-life-bar {
-  height: 100%;
-  width: 80%;
-  background-color: var(--pokemon-life-bar-color);
-}

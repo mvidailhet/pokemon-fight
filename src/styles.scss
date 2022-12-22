@@ -2,13 +2,29 @@
 @import './styles/pokemon-info';
 
 :root {
+  --background-color: #f5f5f5;
   --text-color: #4d4d4d;
+
   --menu-border-color: #4d4d4d;
-  --menu-background-color: #f5f5f5;
+  --menu-background-color: #ffffff;
+  --menu-border-thickness: 4px;
+  --menu-border-radius: 10px;
+
   --menu-item-hover-color: #dddddd;
   --menu-item-clicked-color: #cccccc;
 
+  --pokemon-info-border-color: #4d4d4d;
+  --pokemon-info-background-color: #ffffff;
+  --pokemon-info-border-thickness: 4px;
+  --pokemon-info-border-radius: 10px;
+
   --pokemon-life-bar-color: #3ad628;
+  --pokemon-life-bar-border-radius: 20px;
+  --pokemon-life-bar-border-thickness: 4px;
+  --pokemon-life-bar-border-color: #4d4d4d;
+
+  --pokemon-gender-male-color: #01A6EA;
+  --pokemon-gender-female-color: #FFB1CB;
 }
 
 
@@ -20,7 +36,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: roboto, sans-serif;
-  color: #4d4d4d;
+  color: var(--text-color);
+  background-color: var(--background-color);
 }
 header {
   position: absolute;
