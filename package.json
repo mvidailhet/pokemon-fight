@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc & sass src/styles.scss dist/styles.css"
   },
   "author": "",
   "license": "ISC",
