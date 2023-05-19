@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc & sass src/styles.scss dist/styles.css"
+    "build": "tsc & sass src/styles.scss dist/src/styles.css"
   },
   "author": "",
   "license": "ISC",
