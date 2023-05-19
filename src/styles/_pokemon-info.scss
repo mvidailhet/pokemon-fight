@@ -72,12 +72,14 @@
     border: var(--pokemon-life-bar-border-thickness) solid var(--pokemon-life-bar-border-color);
     height: 40px;
     border-radius: calc(var(--pokemon-life-bar-border-radius) + var(--pokemon-life-bar-border-thickness));
-  
+
+
     .pokemon-life-bar {
       height: 100%;
       width: 80%;
       background-color: var(--pokemon-life-bar-color);
       border-radius: var(--pokemon-life-bar-border-radius);
+      transition: width 1s ease-in-out;
     }
   }
 }

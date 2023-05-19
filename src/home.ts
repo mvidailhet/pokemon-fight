@@ -22,6 +22,8 @@ interface Pokemon {
   level: number;
   life: ValueWithTotal;
   moves: PokemonMove[];
+  lifePointsElt?: HTMLElement;
+  lifeBarElt?: HTMLElement;
 }
 
 const ennemyPokemon: Pokemon = {
@@ -50,7 +52,7 @@ const playerPokemon: Pokemon = {
   gender: "female",
   name: "Bulbizarre",
   level: 1,
-  id: 1,
+  id: 50,
   life: {
     current: 10,
     total: 19,
@@ -113,6 +115,9 @@ function createFightMenu(moves: PokemonMove[]) {
     });
     attackMenuItem.addEventListener('mouseleave', function() {
       updateFightMenuAttackDetails(atttackDetails);
+    });
+    attackMenuItem.addEventListener('click', function() {
+      attack(ennemyPokemon, move);
     });
   });
 
@@ -273,6 +278,7 @@ function createPokemonInfoBox(
     ["pokemon-life-info"],
     pokemonInfo
   );
+
   const pokemonLifePointsContainer = Utils.createNewElement(
     "div",
     ["pokemon-life-points-container"],
@@ -291,6 +297,7 @@ function createPokemonInfoBox(
     pokemonLifePointsContainer,
     pokemon.life.current.toString()
   );
+  
   const pokemonLifePointsSeparator = Utils.createNewElement(
     "span",
     ["pokemon-life-points-separator"],
@@ -314,8 +321,21 @@ function createPokemonInfoBox(
     ["pokemon-life-bar"],
     pokemonLifeBarContainer
   );
+
+  pokemon.lifePointsElt = pokemonLifePoints;
+  pokemon.lifeBarElt = pokemonLifeBar;
+
   const pokemonLifePercent = (pokemon.life.current / pokemon.life.total) * 100;
   pokemonLifeBar.style.width = pokemonLifePercent + "%";
+}
+
+function calculateLifeBarWidthForPokemon(pokemon: Pokemon) {
+  return (pokemon.life.current / pokemon.life.total) * 100;
+}
+
+function changeLifeBarWidthFromPokemon(pokemon: Pokemon) {
+  if (!pokemon.lifeBarElt) return;
+  pokemon.lifeBarElt.style.width = calculateLifeBarWidthForPokemon(pokemon) + "%";
 }
 
 function createGenderSVG(isMale: boolean = true) {
@@ -353,3 +373,12 @@ createPokemonAndInfoBox(true, ennemyPokemon);
 createPokemonAndInfoBox(false, playerPokemon);
 
 const figthMenuAttackDetails = createFightMenu(playerPokemon.moves);
+
+function attack(pokemon: Pokemon, move: PokemonMove) {
+  pokemon.life.current -= move.damage;
+
+  if (!pokemon.lifePointsElt) return;
+
+  pokemon.lifePointsElt.textContent = pokemon.life.current.toString();
+  changeLifeBarWidthFromPokemon(pokemon);
+}
